@@ -69,5 +69,22 @@ else
 {
     Console.WriteLine("try again: ");
 }
+
+
+
+
+
+Console.WriteLine("input number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+int count = number * (-1);
+while(count <= number)
+{
+    Console.Write(count + ", ");
+    count = count + 1; //count +=1 count++
+}
 */
 
+
+Console.WriteLine("input number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+if()
