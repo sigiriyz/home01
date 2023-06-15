@@ -1,49 +1,15 @@
-﻿/*
-Console.Write("input number: ");
-int number = Convert.ToInt32(Console.ReadLine());
-int result = number * number;
-Console.WriteLine("Square is: " + result);
-
-
-Console.WriteLine("input first: ");
-int numberA = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("input second: ");
-int numberB = Convert.ToInt32(Console.ReadLine());
-if(numberA == numberB * numberB)
-{
-    Console.WriteLine("Ferst number = square second");
-}
-else
-{
-    Console.WriteLine("Ferst number != square second");
-}
-
-
-Console.WriteLine("input number: ");
-int number = Convert.ToInt32(Console.ReadLine());
-int count = number * (-1);
-while(count <= number)
-{
-    Console.Write(count + ", ");
-    count = count + 1; //count +=1 count++
-}
-*/
-
-
-
-
-/*
+﻿
 Console.WriteLine("input number: ");
 int numberA = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("input number: ");
 int numberB = Convert.ToInt32(Console.ReadLine());
 if(numberA > numberB)
 {
-    Console.Write("first > second");
+    Console.Write(numberA + " > " + numberB);
 }
 else
 {
-    Console.Write("secondfirst > first");
+    Console.Write(numberB + " > " + numberA);
 }
 
 
@@ -71,20 +37,11 @@ else
 }
 
 
-
-
-
 Console.WriteLine("input number: ");
 int number = Convert.ToInt32(Console.ReadLine());
-int count = number * (-1);
+int count = 2;
 while(count <= number)
 {
     Console.Write(count + ", ");
-    count = count + 1; //count +=1 count++
+    count = count + 2;
 }
-*/
-
-
-Console.WriteLine("input number: ");
-int number = Convert.ToInt32(Console.ReadLine());
-if()
