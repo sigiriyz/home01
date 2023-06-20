@@ -1,116 +1,46 @@
-﻿/*
-int Line()
-{
-    int num = new Random().Next(10, 100);
-    Console.WriteLine("You num is " + num);
-    int dec = num / 10;
-    int ed = num % 10;
-    if(dec > ed)
-    {
-        return dec;
-    }
-    else
-    {
-        return ed;
-    }
-}
-Console.WriteLine("Result is - " + Line());
+﻿
+//Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
 
-
-
-//Напишите программу,которая выводит случайное число трехзначное и удалят вторую цифру этого числа
-
-    int num = new Random().Next(100, 1000);
-    Console.WriteLine("Yon number is " + num);
-    int b = num / 100;
-    int c = num % 10;
-
-    Console.WriteLine($"Your result {b}{c}");
-
-
-
-Console.WriteLine("Input number1 ");
+Console.WriteLine("Input number: ");
 int num1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Input number2 ");
-int num2 = Convert.ToInt32(Console.ReadLine());
-if(num2 != 0 && num1 != 0)
+if(99 < num1 && num1 < 1000)
 {
-    if(num2 % num1 == 0)
-    {
-        Console.WriteLine("Число кратное");
-    }
-    else
-    {
-        Console.WriteLine("Число некратное");
-    }
+    num1 = num1 / 10;
+    num1 = num1 % 10;
+    Console.WriteLine($"Second number is: {num1}");
+}
+
+
+
+//Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+
+int num = new Random().Next(10, 100000);
+Console.WriteLine(num);
+if (99 < num && num < 100000)
+{
+    num = num / 100;
+    num = num % 10;
+    Console.WriteLine($"Third digit: {num}");
 }
 else
 {
-    Console.WriteLine("ERROR");
+    Console.WriteLine("Third digit: NIL");
 }
 
 
 
-Console.WriteLine("Input number ");// кратно 7 и 23
+//Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+
+Console.WriteLine("Input number: ");
 int num = Convert.ToInt32(Console.ReadLine());
-
-if(num != 0)
+if(num >= 1 && num <= 7)
 {
-    if (num % 7 == 0 && num % 23 == 0)
+    if(num >=1 && num <=5)
     {
-        Console.WriteLine("Number multiple 7 and 23");
+        Console.WriteLine("Worker day");
     }
     else
     {
-        Console.WriteLine("Number not multiple 7 and 23");
+        Console.WriteLine("weekend");
     }
 }
-else
-{
-    Console.WriteLine("Don't enter 0");
-}
-
-
-
-Console.WriteLine("Input number ");// кратно 7 и 23
-int num = Convert.ToInt32(Console.ReadLine());
-void GetNumberDiv()
-{
-    if(num != 0)
-{
-    if (num % 7 == 0 && num % 23 == 0)
-    {
-        Console.WriteLine("Number multiple 7 and 23");
-    }
-    else
-    {
-        Console.WriteLine("Number not multiple 7 and 23");
-    }
-}
-else
-{
-    Console.WriteLine("Don't enter 0");
-}
-}
-GetNumberDiv();
-
-
-
-Console.WriteLine("Input number1: ");
-int num1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Input number2: ");
-int num2 = Convert.ToInt32(Console.ReadLine());
-void GetSqrt()
-{
-    if (num1 == num2 * num2 || num2 == num1 * num1)
-    {
-        Console.WriteLine("is square");
-    }
-    else
-    {
-        Console.WriteLine("not square");
-    }
-}
-GetSqrt();
-*/
-
