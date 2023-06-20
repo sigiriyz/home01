@@ -40,8 +40,8 @@ while (current <= number)
 //Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 
 Console.Write("Введт пятизначное число: ");
-int number = Convert.ToInt32(Console.ReadLine());
-if (number % 10 == number / 10000 && (number % 100) / 10== (number / 1000) % 10)
+int numberA = Convert.ToInt32(Console.ReadLine());
+if (numberA % 10 == numberA / 10000 && (numberA % 100) / 10== (numberA / 1000) % 10)
 {
     Console.Write("является палиндромом ");
 }
