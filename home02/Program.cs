@@ -32,10 +32,10 @@ else
 //Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
 
 Console.WriteLine("Input number: ");
-int num = Convert.ToInt32(Console.ReadLine());
-if(num >= 1 && num <= 7)
+int numD = Convert.ToInt32(Console.ReadLine());
+if(numD >= 1 && numD <= 7)
 {
-    if(num >=1 && num <=5)
+    if(numD >=1 && numD <=5)
     {
         Console.WriteLine("Worker day");
     }
