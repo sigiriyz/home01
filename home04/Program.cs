@@ -38,3 +38,47 @@ SumNum(num);
 */
 
 //Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+/*
+int[] CreateNewArray(int sizeArray)
+{
+    int[] random1array = new int[sizeArray];
+    for (int i = 0; i < sizeArray; i++)
+    {
+        random1array[i] = new Random().Next(0, 2);
+    }
+    return random1array;
+}
+
+void PrintArray(int[] arrayToPrint)
+{
+    Console.WriteLine("Your array is: ");
+    for (int i = 0; i < arrayToPrint.Length; i++)
+        Console.Write(arrayToPrint[i] + " ");
+}
+
+int size = 8;
+int[] firstArray = CreateNewArray(size);
+PrintArray(firstArray);
+
+*/
+
+int[] CreateNewArray(int sizeArray)
+{
+    int[] randomArray = new int[sizeArray];
+    for(int i = 0; i < sizeArray; i++)
+    {
+        randomArray[i] = new Random().Next(-20, 20);
+    }
+    return randomArray;
+}
+
+void PrintArray(int[] arrayToPrint)
+{
+    Console.WriteLine("Your array is: ");
+    for(int i = 0; i < arrayToPrint.Length; i++)
+        Console.Write($"{arrayToPrint[i]} ");
+}
+
+int size = 8;
+int[] firstArray = CreateNewArray(size);
+PrintArray(firstArray);
