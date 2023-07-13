@@ -1,193 +1,121 @@
-﻿
-int[,] Created2dArray(int rows, int coiiums, int minV, int maxV)
-{
-    int[,] createdArray = new int[rows, coiiums];
-    for (int i = 0; i < rows; i++)
-        for (int j = 0; j < coiiums; j++)
-            createdArray[i, j] = new Random().Next(minV, maxV + 1);
-    return createdArray;
-}
+﻿//Задайте двумерный массив размером m×n, 
+//заполненный случайными вещественными числами.
 
-void ShowArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
-    Console.WriteLine();
-}
-
-int[,] ChangeRows(int[,] arrayChange, int row1, int row2)
-{
-    if (row1 >= 0 &&
-        row1 < arrayChange.GetLength(0) &&
-        row1 != row2 &&
-        row2 >= 0 &&
-        row2 < arrayChange.GetLength(0))
-    {
-        for (int j = 0; j < arrayChange.GetLength(1); j++)
-        {
-            int temp = arrayChange[row1, j];
-            arrayChange[row1, j] = arrayChange[row2, j];
-            arrayChange[row2, j] = temp;
-        }
-    }
-    else Console.WriteLine("Error! Impossible value!");
-    return arrayChange;
-}
-
-Console.Write("Input count of rows: ");
+Console.WriteLine("Задача 47------------------------------");
+Console.Write("Enter number of rows: ");
 int userRows = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input count of collums: ");
-int userColloums = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input count of min value: ");
-int minUser = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input count of max value: ");
-int maxUser = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter number of columns: ");
+int userCols = Convert.ToInt32(Console.ReadLine());
 
-int [,] newArr = Created2dArray(userRows, userColloums, minUser, maxUser);
-ShowArray(newArr);
+ShowArrayReal(Create2DArrReal(userRows, userCols));
 
-Console.Write($"Input number of the first row to remove ftom 0 to {userRows-1}: ");
-int userFirstRow = Convert.ToInt32(Console.ReadLine());
-Console.Write($"Input number of the second row to remove ftom 0 to {userRows-1}: ");
-int userSecondRow = Convert.ToInt32(Console.ReadLine());
 
-ShowArray(ChangeRows(newArr, userFirstRow, userSecondRow));
-*/
 
-//Задача 2.
-// Задайте двумерный массив. Напишите программу, которая заменяет строки на столбцы.
-// В случае, если это невозможно, программа должна вывести сообщение для пользователя.
+//Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+//и возвращает значение этого элемента или же указание, что такого элемента нет.
 
-/*
-int[,] Created2dArray(int rows, int coiiums, int minV, int maxV)
+int[,] userArr = Create2DArr(new Random().Next(3, 9), new Random().Next(3, 9));
+Console.WriteLine("Array:");
+ShowArray(userArr);
+IndexPrint(userArr);
+
+
+
+//Задайте двумерный массив из целых чисел. 
+//Найдите среднее арифметическое элементов в каждом столбце.
+
+userArr = Create2DArr(4, 4);
+Console.WriteLine("Array:");
+ShowArray(userArr);
+ColumnMean(userArr);
+
+double[,] Create2DArrReal(int rows, int columns, int minV = -9, int maxV = 9)
 {
-    int[,] createdArray = new int[rows, coiiums];
+    double[,] createdArray = new double[rows, columns];
     for (int i = 0; i < rows; i++)
-        for (int j = 0; j < coiiums; j++)
-            createdArray[i, j] = new Random().Next(minV, maxV + 1);
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            createdArray[i,j] = Math.Round(
+                                new Random().Next(minV, maxV + 1)
+                              + new Random().NextDouble(),
+                                1);
+        }
+    }
     return createdArray;
 }
 
-void ShowArray(int[,] array)
+void ShowArrayReal (double [,] arrToShow)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < arrToShow.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < arrToShow.GetLength(1); j++)
         {
-            Console.Write(array[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
-    Console.WriteLine();
-}
-
-int[,] ExchRowsCols (int[,] arrToChange)
-{
-    int[,] tempArr = new int[arrToChange.GetLength(0), arrToChange.GetLength(1)];
-    if (arrToChange.GetLength(0) == arrToChange.GetLength(1))
-    {
-        for (int i = 0; i < arrToChange.GetLength(0); i++)
-        {
-            for (int j = 0; j < arrToChange.GetLength(1); j++)
+            if (arrToShow[i, j] < 0)
             {
-                tempArr[j, i] = arrToChange[i, j];
+                if (arrToShow[i, j] % 1 == 0) Console.Write(arrToShow[i, j] + "   ");
+                else Console.Write(arrToShow[i, j] + " ");
+            }
+            else
+            {
+                if (arrToShow[i, j] % 1 == 0) Console.Write(" " + arrToShow[i, j] + "   ");
+                else Console.Write(" " + arrToShow[i, j] + " ");
             }
         }
-        return tempArr;
-    }
-    else
-    {
-        Console.WriteLine("Impossible to exchange rows with columns. Array is not square.");
-        return arrToChange;
+        Console.WriteLine("");
     }
 }
 
-Console.Write("Input count of rows: ");
-int userRows = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input count of collums: ");
-int userColloums = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input count of min value: ");
-int minUser = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input count of max value: ");
-int maxUser = Convert.ToInt32(Console.ReadLine());
-
-int [,] newArr = Created2dArray(userRows, userColloums, minUser, maxUser);
-ShowArray(newArr);
-
-ShowArray(ExchRowsCols(newArr));
-*/
-
-
-//Задача 3.
-// Задайте двумерный массив из целых чисел. Напишите программу, которая обнулит строку и столбец, 
-// на пересечении которых расположен первый наименьший элемент массива.
-/*
-int [,] Created2dArray (int rows, int columns)
+int[,] Create2DArr(int rows, int columns, int minV = 1, int maxV = 9)
 {
-    int [,] createdArray = new int [rows, columns];
+    int[,] createdArray = new int[rows, columns];
     for (int i = 0; i < rows; i++)
+    {
         for (int j = 0; j < columns; j++)
-            createdArray[i,j] = new Random().Next(-9, 10);
+        {
+            createdArray[i,j] = new Random().Next(minV, maxV + 1);
+        }
+    }
     return createdArray;
 }
 
-void ShowArray (int [,] printedArray)
+void ShowArray (int [,] arrToShow)
 {
-    for (int i = 0; i < printedArray.GetLength(0); i++)
-    {    
-        for (int j = 0; j < printedArray.GetLength(1); j++)
+    for (int i = 0; i < arrToShow.GetLength(0); i++)
+    {
+        for (int j = 0; j < arrToShow.GetLength(1); j++)
         {
-            Console.Write(printedArray[i,j] + " ");
+            Console.Write(arrToShow[i, j] + " ");
         }
-        Console.WriteLine();
+        Console.WriteLine("");
     }
-    Console.WriteLine();    
 }
 
-int [] FindFirstMin (int [,] arrayToAnalyse)
+void IndexPrint (int[,] arrToParse)
 {
-    int min = arrayToAnalyse[0,0];
-    int [] coord = new int[2];
-    for (int i = 0; i < arrayToAnalyse.GetLength(0); i++)
-        {    
-            for (int j = 0; j < arrayToAnalyse.GetLength(1); j++)
-                if (min > arrayToAnalyse[i,j])
-                {
-                    min = arrayToAnalyse[i,j];
-                    coord[0] = i;
-                    coord[1] = j;
-                }
+    Console.Write("Enter row position: ");
+    int row = Convert.ToInt32(Console.ReadLine()) - 1;
+    Console.Write("Enter column position: ");
+    int col = Convert.ToInt32(Console.ReadLine()) - 1;
+
+    if (row+1 > arrToParse.GetLength(0) || col+1 > arrToParse.GetLength(1))
+        Console.WriteLine("Element with this index does not exist.");
+    else
+        Console.WriteLine("The value of the provided index is: " + arrToParse[row, col]);
+}
+
+void ColumnMean (int[,] arrToMean)
+{
+    double mean = 0;
+    Console.WriteLine("Mean for each column:");
+    for (int j = 0; j < arrToMean.GetLength(1); j++)
+    {
+        mean = 0;
+        for (int i = 0; i < arrToMean.GetLength(0); i++)
+        {
+            mean += arrToMean[i, j];
         }
-    return coord;
+        if (j == arrToMean.GetLength(1)-1) Console.WriteLine(Math.Round(mean/arrToMean.GetLength(0), 1) + ".");
+        else Console.Write(Math.Round(mean/arrToMean.GetLength(0), 1) + "; ");
+    }
 }
-
-int [,] arrayToDemonstrate (int [,] arrayToProcess, int [] coordArray)
-{
-    for (int i = 0; i < arrayToProcess.GetLength(0); i++)
-        arrayToProcess[i, coordArray[1]] = 0;
-
-    for (int j = 0; j < arrayToProcess.GetLength(1); j++)   
-        arrayToProcess[coordArray[0], j] = 0;
-    return arrayToProcess;
-}
-
-Console.Write("Input count of rows: ");
-int userRows = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input count of columns: ");
-int userColumns = Convert.ToInt32(Console.ReadLine());
-
-int [,] arrayFromUser = Created2dArray(userRows, userColumns);
-ShowArray(arrayFromUser);
-int [] coordUser = FindFirstMin(arrayFromUser);
-int [,] finalArray = arrayToDemonstrate(arrayFromUser, coordUser);
-ShowArray(finalArray);
-*/
-
-
-
